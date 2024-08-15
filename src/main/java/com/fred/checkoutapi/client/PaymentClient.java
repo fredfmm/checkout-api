@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
 import java.util.Optional;
-import java.util.UUID;
 
 @Component
 public class PaymentClient {
@@ -33,7 +32,7 @@ public class PaymentClient {
                 .build();
     }
 
-    public Optional<PaymentResponse> processPayment(final UUID orderId) {
+    public Optional<PaymentResponse> processPayment(final String orderId) {
         try {
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<Void> requestEntity = new HttpEntity<>(headers);

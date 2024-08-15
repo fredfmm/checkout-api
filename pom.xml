@@ -289,6 +289,7 @@
 						<exclude>com/fred/checkoutapi/Application.class</exclude>
 						<exclude>com/fred/checkoutapi/exceptions/**</exclude>
 						<exclude>com/fred/checkoutapi/model/**</exclude>
+						<exclude>com/fred/checkoutapi/client/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>

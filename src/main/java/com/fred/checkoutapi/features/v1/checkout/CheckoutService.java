@@ -32,7 +32,7 @@ public class CheckoutService {
                 .status(CheckoutStatus.PENDING)
                 .build());
 
-        paymentClient.processPayment(checkout.getId())
+        paymentClient.processPayment(checkout.getId().toString())
                 .ifPresent(paymentResponse -> {
                     if (!paymentResponse.isSuccess()) {
                         checkout.setStatus(CheckoutStatus.CANCELED);
