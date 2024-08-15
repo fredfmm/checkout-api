@@ -34,10 +34,11 @@ public class CheckoutService {
 
         paymentClient.processPayment(checkout.getId().toString())
                 .ifPresent(paymentResponse -> {
-                    if (!paymentResponse.isSuccess()) {
-                        checkout.setStatus(CheckoutStatus.CANCELED);
-                        checkoutRepository.save(checkout);
+                    checkout.setStatus(CheckoutStatus.CANCELED);
+                    if (paymentResponse.isSuccess()) {
+                        checkout.setStatus(CheckoutStatus.COMPLETED);
                     }
+                    checkoutRepository.save(checkout);
                 });
         return checkout;
     }
